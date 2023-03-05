@@ -8,7 +8,7 @@ print(df_countries.columns)
 
 # As the third and fourth column have nominal data which are not required for a
 # line plot, those columns can be dropped
-df_countries.drop(df_countries.columns[[2, 3]], axis=1, inplace=True)
+df_countries.drop(df_countries.columns[[2, 3]], axis = 1, inplace = True)
 print(df_countries)
 
 # Data Manipulation to transpose the matrix for a line plot to display the
@@ -25,7 +25,7 @@ df_countries_t.index = df_countries_t.index.astype(int)
 print(df_countries_t)
 
 
-def lineplot(df1, df2):
+def lineplot(df1, df2, title):
     """ Function to compare poverty rates of two countries by
         creating a lineplot between the index and respective dataframe
         containing single column representing the country's data.
@@ -33,17 +33,19 @@ def lineplot(df1, df2):
         Arguments:
         Two dataframes with index as "x" and the country specific dataframe
         which has a single column to be taken as "y".
+        title (String): Title for the Line plot
     """
 
     plt.figure()
-    plt.plot(df1.index, df1, label=df1.columns.values)
-    plt.plot(df2.index, df2, label=df2.columns.values)
+    plt.plot(df1.index, df1, label = df1.columns.values)
+    plt.plot(df2.index, df2, label = df2.columns.values)
 
     # labelling
     plt.xlabel("Year")
     plt.ylabel("Poverty Headcount Ratio")
-
     plt.legend()
+    plt.title(title)
+
     # Save the line plot as png
     plt.savefig("PovertyRatioLinePlot.png")
     plt.show()
@@ -56,4 +58,4 @@ df_india = df_countries_t[["India"]].dropna()
 df_china = df_countries_t[["China"]].dropna()
 
 # Calling lineplot function to plot the poverty rates for India and Argentina
-lineplot(df_india, df_china)
+lineplot(df_india, df_china, "Poverty Comparison between China and India")
