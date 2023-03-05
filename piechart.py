@@ -21,14 +21,13 @@ def sumofuniquecounts(df, column):
 
 
 # Pie chart between the levels of education among the employees
-plt.subplots(figsize = (15, 8))
-plt.pie(sumofuniquecounts(df_hr, "department"),
-        labels = df_hr['department'].unique())
-plt.title("Domain of Expertise")
+sumofuniquecounts(df_hr, "education").plot(kind='pie',
+                                           subplots = True, figsize = (8, 8))
+plt.title("Levels of education", fontsize = 20)
 plt.ylabel("")
 
 # Saving the Pie Chart as png
-plt.savefig("plots/DomainOfExpertise_Piechart.png")
+plt.savefig("plots/LevelOfEducation_Piechart.png")
 plt.show()
 
 
@@ -37,7 +36,6 @@ plt.subplots(figsize = (8, 8))
 plt.pie(sumofuniquecounts(df_hr, "gender"), labels = ["Female", "Male"],
         explode = [0, 0.1], shadow = True, autopct = "%.2f%%")
 plt.title("Gender Distribution", fontsize = 20)
-plt.legend()
 
 # Saving the Pie Chart as png
 plt.savefig("plots/GenderDistribution_Piechart.png")
