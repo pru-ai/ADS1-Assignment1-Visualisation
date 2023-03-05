@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Importing Wine Production Dataset
-df_wineproduction = pd.read_csv("Wine_Data.csv", index_col=0)
+df_wineproduction = pd.read_csv("data/Wine_Data.csv", index_col=0)
 print(df_wineproduction.head())
 print(df_wineproduction.columns)
 
@@ -36,7 +36,7 @@ def barplotfortopten(df, column, title):
 
     # Save the plots as png based on the column name
     plt.tight_layout()
-    plt.savefig("TopTenBy" + column.capitalize() + ".png")
+    plt.savefig("plots/TopTenBy" + column.capitalize() + ".png")
     plt.show()
 
     return

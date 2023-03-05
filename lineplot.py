@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Importing World Poverty Data of Countries over the years
-df_countries = pd.read_csv("Poverty_Ratio_Dataset.csv")
+df_countries = pd.read_csv("data/Poverty_Ratio_Dataset.csv")
 print(df_countries)
 print(df_countries.columns)
 
@@ -47,7 +47,7 @@ def lineplot(df1, df2, title):
     plt.title(title)
 
     # Save the line plot as png
-    plt.savefig("PovertyRatioLinePlot.png")
+    plt.savefig("plots/PovertyRatioLinePlot.png")
     plt.show()
 
     return
